@@ -4,6 +4,7 @@ const sqs = new SL.AWS.SQS(AWS);
 exports.handler = function (event, context, callback) {
 
 	var message = event;
+	console.log('message : ',message);
 
 	sqs.sendMessage({
 		MessageBody: message,
