@@ -11,8 +11,9 @@ exports.handler = function (event, context, callback) {
 	}, function (receivedMessages) {
 		receivedMessages.forEach(message => {
 			console.log(message);
+			return message;
 		})
-		return receivedMessages;
+		// return receivedMessages;	
 	}, function (deleteSuccessData) {
 		// implement delete success state here
 		console.log(deleteSuccessData);
