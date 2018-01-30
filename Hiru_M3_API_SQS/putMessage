@@ -6,7 +6,7 @@ exports.handler = function (event, context, callback) {
 	var message = {};
 	message.x = Number(event.x);
 	console.log('message : ',message.x);
-	//test
+	//test 123
 
 	sqs.sendMessage({
 		MessageBody: message.x,
