@@ -10,9 +10,7 @@ exports.handler = function (event, context, callback) {
 		VisibilityTimeout: '30',
 		WaitTimeSeconds: '0'
 	}, function (data) {
-		data.forEach(message => {
-			console.log(message);
-		})
+		console.log(data);
 	}, function (error) {
 		console.log(error);
 	});
