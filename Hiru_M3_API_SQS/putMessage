@@ -3,6 +3,9 @@ let SL = require('@slappforge/slappforge-sdk');
 const sqs = new SL.AWS.SQS(AWS);
 exports.handler = function (event, context, callback) {
 
+	var x;
+
+	for(x=1;x<3;x++){
 	var message = {};
 	message.x = String(event.x);
 	console.log('message : ',message.x);
@@ -18,7 +21,7 @@ exports.handler = function (event, context, callback) {
 	}, function (error) {
 		console.log(error);
 	});
-
+	}
 	
 
 	callback(null, 'Successfully executed');
