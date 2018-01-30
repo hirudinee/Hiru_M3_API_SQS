@@ -9,7 +9,9 @@ exports.handler = function (event, context, callback) {
 		VisibilityTimeout: '30',
 		WaitTimeSeconds: '0'
 	}, function (receivedMessages) {
-		console.log(receivedMessages);
+		receivedMessages.forEach(message => {
+			console.log(message);
+		})
 		return receivedMessages;
 	}, function (deleteSuccessData) {
 		// implement delete success state here
