@@ -3,27 +3,35 @@ let SL = require('@slappforge/slappforge-sdk');
 const sqs = new SL.AWS.SQS(AWS);
 exports.handler = function (event, context, callback) {
 
-	var x=1;
-
-	for(x=1;x<3;x++){
-	console.log(x);
 	var message = {};
 	message.x = String(event.x);
-	console.log('message : ',message.x);
+	console.log('message : ', message.x);
 	//test 123
 
 	sqs.sendMessage({
 		MessageBody: message.x,
 		QueueUrl: 'https://sqs.us-east-1.amazonaws.com/480964559519/Hiru_Test1201',
 		DelaySeconds: '0',
-		MessageAttributes: {}
+		MessageAttributes: {
+			"key001": {
+				"DataType": "String",
+				"StringValue": "test"
+			},
+			"key002": {
+				"DataType": "Number",
+				"StringValue": "001"
+			},
+			"key003": {
+				"DataType": "Binary",
+				"BinaryValue": "1"
+			}
+		}
 	}, function (data) {
 		console.log(data);
 	}, function (error) {
 		console.log(error);
 	});
-	}
-	
+
 
 	callback(null, 'Successfully executed');
 }
