@@ -9,13 +9,13 @@ exports.handler = function (event, context, callback) {
 		MaxNumberOfMessages: '5',
 		VisibilityTimeout: '30',
 		WaitTimeSeconds: '0'
-	}, function (data) {
-		console.log(data);
+	}, function (receivedMessages) {
+		receivedMessages.forEach(message => {
+			console.log(message);
+		})
 	}, function (error) {
 		console.log(error);
 	});
-	
-
 
 	callback(null, 'Successfully executed');
 }
